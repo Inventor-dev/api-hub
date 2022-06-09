@@ -1,1 +1,6 @@
+server:
+  port: 8482
+
+spring:
+  datasource:
 
