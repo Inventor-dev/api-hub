@@ -4,19 +4,14 @@ import xyz.lemone.apihub.ureport.Utils;
 import xyz.lemone.apihub.ureport.build.BindData;
 import xyz.lemone.apihub.ureport.build.Context;
 import xyz.lemone.apihub.ureport.definition.Order;
-import xyz.lemone.apihub.ureport.exception.ReportComputeException;
-import xyz.lemone.apihub.ureport.expression.model.data.BindDataListExpressionData;
-import xyz.lemone.apihub.ureport.expression.model.data.ExpressionData;
-import xyz.lemone.apihub.ureport.expression.model.data.ObjectExpressionData;
-import xyz.lemone.apihub.ureport.expression.model.data.ObjectListExpressionData;
-import xyz.lemone.apihub.ureport.model.Cell;
+import xyz.lemone.apihub.support.sqlparse.exception.ExpressionComputeException;
+import xyz.lemone.apihub.support.sqlparse.expression.model.data.BindDataListExpressionData;
+import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
+import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
+import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectListExpressionData;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * OrderFunction.
@@ -26,9 +21,9 @@ import java.util.List;
 public class OrderFunction implements Function {
 
     @Override
-    public Object execute(List<ExpressionData<?>> dataList, Context context, Cell currentCell) {
+    public Object execute(List<ExpressionData<?>> dataList, Context context) {
         if (dataList == null || dataList.size() != 2) {
-            throw new ReportComputeException("Function [order] need two parameters");
+            throw new ExpressionComputeException("Function [order] need two parameters");
         }
         boolean result = computeOrder(dataList);
         Order orderData = Order.asc;
@@ -97,7 +92,7 @@ public class OrderFunction implements Function {
             ObjectExpressionData data = (ObjectExpressionData) secondData;
             Object obj = data.getData();
             if (obj == null) {
-                throw new ReportComputeException("Function [order] second parameter can not be null");
+                throw new ExpressionComputeException("Function [order] second parameter can not be null");
             }
             if (obj instanceof Boolean) {
                 order = (Boolean) obj;
@@ -106,7 +101,7 @@ public class OrderFunction implements Function {
             if (obj instanceof String) {
                 order = Boolean.valueOf(obj.toString());
             } else {
-                throw new ReportComputeException("Function [order] second parameter muse be boolean type.");
+                throw new ExpressionComputeException("Function [order] second parameter muse be boolean type.");
             }
         }
         return order;

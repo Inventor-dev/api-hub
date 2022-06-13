@@ -1,12 +1,16 @@
 package xyz.lemone.apihub.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import xyz.lemone.apihub.runner.SqlRunner;
 
 import javax.sql.DataSource;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,17 +32,17 @@ public class DemoController {
         String configSql =
                 "${ " +
                         "if(param('loginUser.username')=='admin'){ " +
-                            "return 'select * from merchants_driver' " +
+                            "return 'select * from users' " +
+                        "} else if(3>2) {" +
+                            "return 'select * from users2' " +
                         "} else {" +
-                            "return 'select * from merchants_driver where driver_tel = :loginUser.username' " +
+                            "return 'select * from users where username = :loginUser.username' " +
                         "}" +
                 "}";
 
         String sql = sqlRunner.parseSql(configSql, param);
         System.out.println(sql);
-        NamedParameterJdbcTemplate jdbc = new NamedParameterJdbcTemplate(dataSource);
-        List<Map<String, Object>> maps = jdbc.queryForList(sql, param);
-        return maps;
+        return sql;
 
 
     }

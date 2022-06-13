@@ -1,8 +1,7 @@
 package xyz.lemone.apihub.support.sqlparse.expression.function;
 
 import xyz.lemone.apihub.ureport.build.Context;
-import xyz.lemone.apihub.ureport.expression.model.data.ExpressionData;
-import xyz.lemone.apihub.ureport.model.Cell;
+import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 
 import java.util.List;
 
@@ -13,8 +12,8 @@ import java.util.List;
  */
 public class ParameterIsEmptyFunction extends ParameterFunction {
     @Override
-    public Object execute(List<ExpressionData<?>> dataList, Context context, Cell currentCell) {
-        Object obj = super.execute(dataList, context, currentCell);
+    public Object execute(List<ExpressionData<?>> dataList, Context context) {
+        Object obj = super.execute(dataList, context);
         if (obj == null || obj.toString().trim().equals("")) {
             return true;
         }

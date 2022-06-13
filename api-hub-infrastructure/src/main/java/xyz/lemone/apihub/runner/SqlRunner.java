@@ -3,9 +3,9 @@ package xyz.lemone.apihub.runner;
 import xyz.lemone.apihub.ureport.Utils;
 import xyz.lemone.apihub.ureport.build.Context;
 import xyz.lemone.apihub.ureport.expression.ExpressionUtils;
-import xyz.lemone.apihub.ureport.expression.model.Expression;
-import xyz.lemone.apihub.ureport.expression.model.data.ExpressionData;
-import xyz.lemone.apihub.ureport.expression.model.data.ObjectExpressionData;
+import xyz.lemone.apihub.support.sqlparse.expression.model.expression.Expression;
+import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
+import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -72,7 +72,7 @@ public class SqlRunner implements IConfigurableRunner<InterfaceConfig, Object>, 
 
     private String executeSqlExpr(Expression sqlExpr, Context context) {
         String sqlForUse = null;
-        ExpressionData<?> exprData = sqlExpr.execute(null, null, context);
+        ExpressionData<?> exprData = sqlExpr.execute(context);
         if (exprData instanceof ObjectExpressionData) {
             ObjectExpressionData data = (ObjectExpressionData) exprData;
             Object obj = data.getData();

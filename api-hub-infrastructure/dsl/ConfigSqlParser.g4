@@ -41,15 +41,15 @@ exprBlock : variableAssign
 
 returnExpr : 'return'? expr ';'?;
 
-expr : item (Operator item)* ;
+expr : item (ArithmeticOperator item)* ;
 
-ifCondition : expr OP expr ;
+ifCondition : expr LogicalOperator expr ;
 
 variableAssign : 'var'? variable '=' item ';'?;
 
-item : unit (Operator unit)*							#simpleJoin
-	 | LeftParen item RightParen						#singleParenJoin
-     | LeftParen item (Operator item)+ RightParen		#parenJoin
+item : unit (ArithmeticOperator unit)*							#simpleJoin
+	 | LeftParen item RightParen						        #singleParenJoin
+     | LeftParen item (ArithmeticOperator item)+ RightParen		#parenJoin
      ;
 
 unit : dataset
@@ -106,10 +106,10 @@ cellIndicator : Cell									#relative
 
 conditions : condition (join condition)* ;
 
-condition : Cell OP expr 				#cellNameExprCondition
-		  | property OP expr			#propertyCondition
-		  | currentValue OP expr			#currentValueCondition
-		  | expr OP expr				#exprCondition
+condition : Cell LogicalOperator expr 				#cellNameExprCondition
+		  | property LogicalOperator expr			#propertyCondition
+		  | currentValue LogicalOperator expr			#currentValueCondition
+		  | expr LogicalOperator expr				#exprCondition
 		  ;
 
 property : Identifier

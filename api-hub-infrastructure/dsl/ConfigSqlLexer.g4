@@ -2,24 +2,24 @@ lexer grammar ConfigSqlLexer;
 
 Cell : LETTER DIGIT+ ;
 
-Operator : '+'
-		 | '-'
-		 | '*'
-		 | '/'
-		 | '%'
-		 ;
+ArithmeticOperator : '+'
+		           | '-'
+		           | '*'
+		           | '/'
+		           | '%'
+		           ;
 
-OP : '>'
-   | '<'
-   | '=='
-   | '!='
-   | '>='
-   | '<='
-   | 'in'
-   | 'not in'
-   | 'not  in'
-   | 'like'
-   ;
+LogicalOperator : '>'
+                | '<'
+                | '=='
+                | '!='
+                | '>='
+                | '<='
+                | 'in'
+                | 'not in'
+                | 'not  in'
+                | 'like'
+                ;
 
 
 ORDER : 'desc' | 'asc' ;

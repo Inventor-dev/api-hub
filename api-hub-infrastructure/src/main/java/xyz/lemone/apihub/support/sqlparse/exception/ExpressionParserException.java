@@ -3,7 +3,7 @@ package xyz.lemone.apihub.support.sqlparse.exception;
 import xyz.lemone.apihub.support.common.exception.ApiHubException;
 
 /**
- * ExpressionParserException.
+ * 表达式解析异常.
  *
  * @author lemon
  * @since 0.0.1
