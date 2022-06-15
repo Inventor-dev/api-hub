@@ -1,9 +1,9 @@
 package xyz.lemone.apihub.support.sqlparse.expression.function;
 
-import xyz.lemone.apihub.ureport.Utils;
-import xyz.lemone.apihub.ureport.build.BindData;
-import xyz.lemone.apihub.ureport.build.Context;
-import xyz.lemone.apihub.ureport.definition.Order;
+import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
+import xyz.lemone.apihub.support.sqlparse.context.BindData;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
+import xyz.lemone.apihub.support.sqlparse.expression.model.condition.Order;
 import xyz.lemone.apihub.support.sqlparse.exception.ExpressionComputeException;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.BindDataListExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
@@ -67,8 +67,8 @@ public class OrderFunction implements Function {
                 return d2.compareTo(d1);
             }
         } else if (data1 instanceof Number) {
-            BigDecimal n1 = Utils.toBigDecimal(data1);
-            BigDecimal n2 = Utils.toBigDecimal(data2);
+            BigDecimal n1 = ValueConvertHelper.toBigDecimal(data1);
+            BigDecimal n2 = ValueConvertHelper.toBigDecimal(data2);
             if (order.equals(Order.asc)) {
                 return n1.compareTo(n2);
             } else {

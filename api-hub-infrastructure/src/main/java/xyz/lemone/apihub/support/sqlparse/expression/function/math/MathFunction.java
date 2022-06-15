@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import xyz.lemone.apihub.ureport.Utils;
-import xyz.lemone.apihub.ureport.build.BindData;
+import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
+import xyz.lemone.apihub.support.sqlparse.context.BindData;
 import xyz.lemone.apihub.support.sqlparse.exception.ExpressionComputeException;
 import xyz.lemone.apihub.support.sqlparse.expression.function.Function;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.BindDataListExpressionData;
@@ -26,21 +26,21 @@ public abstract class MathFunction implements Function {
 			if(data instanceof ObjectListExpressionData){
 				ObjectListExpressionData objList=(ObjectListExpressionData)data;
 				for(Object obj:objList.getData()){
-					BigDecimal bigData=Utils.toBigDecimal(obj);
+					BigDecimal bigData= ValueConvertHelper.toBigDecimal(obj);
 					if(bigData!=null){
 						list.add(bigData);						
 					}
 				}
 			}else if(data instanceof ObjectExpressionData){
 				ObjectExpressionData objData=(ObjectExpressionData)data;
-				BigDecimal bigData=Utils.toBigDecimal(objData.getData());
+				BigDecimal bigData= ValueConvertHelper.toBigDecimal(objData.getData());
 				if(bigData!=null){
 					list.add(bigData);
 				}
 			}else if(data instanceof BindDataListExpressionData){
 				BindDataListExpressionData bindDataListData=(BindDataListExpressionData)data;
 				for(BindData bindData:bindDataListData.getData()){
-					BigDecimal bigData=Utils.toBigDecimal(bindData.getValue());
+					BigDecimal bigData= ValueConvertHelper.toBigDecimal(bindData.getValue());
 					if(bigData!=null){
 						list.add(bigData);
 					}
@@ -66,14 +66,14 @@ public abstract class MathFunction implements Function {
 			if(obj==null){
 				throw new ExpressionComputeException("Function ["+name()+"] parameter can not be null.");
 			}
-			number=Utils.toBigDecimal(obj);
+			number= ValueConvertHelper.toBigDecimal(obj);
 		}else if(data instanceof ObjectExpressionData){
 			ObjectExpressionData objData=(ObjectExpressionData)data;
 			Object obj=objData.getData();
 			if(obj==null){
 				throw new ExpressionComputeException("Function ["+name()+"] parameter can not be null.");
 			}
-			number=Utils.toBigDecimal(obj);
+			number= ValueConvertHelper.toBigDecimal(obj);
 		}else{
 			throw new ExpressionComputeException("Function ["+name()+"] need a data of number parameter.");
 		}

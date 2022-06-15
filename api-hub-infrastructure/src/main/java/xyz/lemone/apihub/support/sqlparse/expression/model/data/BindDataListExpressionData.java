@@ -2,7 +2,7 @@ package xyz.lemone.apihub.support.sqlparse.expression.model.data;
 
 import java.util.List;
 
-import xyz.lemone.apihub.ureport.build.BindData;
+import xyz.lemone.apihub.support.sqlparse.context.BindData;
 
 /**
  * BindDataListExpressionData.

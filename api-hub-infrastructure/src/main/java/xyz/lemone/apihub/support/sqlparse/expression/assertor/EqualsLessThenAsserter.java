@@ -1,0 +1,28 @@
+package xyz.lemone.apihub.support.sqlparse.expression.assertor;
+
+import java.math.BigDecimal;
+
+import org.apache.commons.lang.StringUtils;
+
+import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
+
+/**
+ * EqualsLessThenAsserter.
+ * @author lemon
+ */
+public class EqualsLessThenAsserter extends AbstractAsserter {
+
+	@Override
+	public boolean eval(Object left, Object right) {
+		if(left==null || right==null){
+			return false;
+		}
+		if(StringUtils.isBlank(left.toString()) || StringUtils.isBlank(right.toString())){
+			return false;
+		}
+		BigDecimal leftObj= ValueConvertHelper.toBigDecimal(left);
+		right=buildObject(right);
+		BigDecimal rightObj= ValueConvertHelper.toBigDecimal(right);
+		return leftObj.compareTo(rightObj) < 1;
+	}
+}

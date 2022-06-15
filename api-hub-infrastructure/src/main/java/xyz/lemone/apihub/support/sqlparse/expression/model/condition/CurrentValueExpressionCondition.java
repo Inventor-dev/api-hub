@@ -3,7 +3,7 @@ package xyz.lemone.apihub.support.sqlparse.expression.model.condition;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.expression.Expression;
-import xyz.lemone.apihub.ureport.build.Context;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 
 /**
  * CurrentValueExpressionCondition.

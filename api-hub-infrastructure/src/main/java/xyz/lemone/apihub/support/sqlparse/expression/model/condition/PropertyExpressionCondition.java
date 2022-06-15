@@ -4,8 +4,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.expression.Expression;
-import xyz.lemone.apihub.ureport.Utils;
-import xyz.lemone.apihub.ureport.build.Context;
+import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 
 /**
  * PropertyExpressionCondition.
@@ -21,7 +21,7 @@ public class PropertyExpressionCondition extends BaseCondition {
     @Override
     protected Object computeLeft(Object obj, Context context) {
         if (StringUtils.isNotBlank(leftProperty)) {
-            return Utils.getProperty(obj, leftProperty);
+            return ValueConvertHelper.getProperty(obj, leftProperty);
         } else {
             return obj;
         }

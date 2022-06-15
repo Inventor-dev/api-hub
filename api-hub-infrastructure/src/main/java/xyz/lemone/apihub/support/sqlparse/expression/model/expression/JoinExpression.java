@@ -5,9 +5,9 @@ import xyz.lemone.apihub.support.sqlparse.expression.model.data.BindDataListExpr
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectListExpressionData;
-import xyz.lemone.apihub.support.sqlparse.expression.model.expression.BaseExpression;
-import xyz.lemone.apihub.ureport.build.BindData;
-import xyz.lemone.apihub.ureport.build.Context;
+import xyz.lemone.apihub.support.sqlparse.context.BindData;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
+import xyz.lemone.apihub.support.sqlparse.toolkit.ElCompute;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,7 +83,7 @@ public class JoinExpression extends BaseExpression {
                 }
             }
         }
-        Object obj = context.evalExpr(str);
+        Object obj = new ElCompute().doCompute(str);
         return new ObjectExpressionData(obj);
     }
 

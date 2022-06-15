@@ -1,8 +1,8 @@
 package xyz.lemone.apihub.support.sqlparse.expression.function;
 
-import xyz.lemone.apihub.ureport.Utils;
-import xyz.lemone.apihub.ureport.build.BindData;
-import xyz.lemone.apihub.ureport.build.Context;
+import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
+import xyz.lemone.apihub.support.sqlparse.context.BindData;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.exception.ExpressionComputeException;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.BindDataListExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
@@ -41,7 +41,7 @@ public class FormatNumberFunction implements Function {
         if (obj == null) {
             throw new ExpressionComputeException("Function [formatnumber] need a number parameter at least");
         } else {
-            BigDecimal bigData = Utils.toBigDecimal(obj);
+            BigDecimal bigData = ValueConvertHelper.toBigDecimal(obj);
             DecimalFormat df = new DecimalFormat(pattern);
             return df.format(bigData.doubleValue());
         }

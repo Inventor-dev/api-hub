@@ -1,17 +1,15 @@
 package xyz.lemone.apihub.support.sqlparse.expression.model.expression;
 
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.exception.ExpressionComputeException;
 import xyz.lemone.apihub.support.sqlparse.expression.function.Function;
+import xyz.lemone.apihub.support.sqlparse.expression.manager.ExpressionFunctions;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectListExpressionData;
-import xyz.lemone.apihub.support.sqlparse.expression.model.expression.BaseExpression;
-import xyz.lemone.apihub.ureport.build.Context;
-import xyz.lemone.apihub.ureport.expression.ExpressionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 方法表达式.
@@ -28,8 +26,7 @@ public class FunctionExpression extends BaseExpression {
 
     @Override
     public ExpressionData<?> compute(Context context) {
-        Map<String, Function> functions = ExpressionUtils.getFunctions();
-        Function targetFunction = functions.get(name);
+        Function targetFunction = ExpressionFunctions.getFunction(name);
         if (targetFunction == null) {
             throw new ExpressionComputeException("Function [" + name + "] not exist.");
         }

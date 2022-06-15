@@ -55,11 +55,6 @@ item : unit (ArithmeticOperator unit)*							#simpleJoin
 unit : dataset
 	 | function
 	 | set
-	 | cellPosition
-	 | relativeCell
-	 | currentCellValue
-	 | currentCellData
-	 | cell
 	 | variable
 	 | INTEGER
 	 | BOOLEAN
@@ -70,16 +65,6 @@ unit : dataset
 
 variable : Identifier ;
 
-cellPosition : '&'Cell ;//表示单元格位置
-
-relativeCell : '$'Cell ; //表示当前引用对应的单元格的值
-
-currentCellValue : '#' ;//表示当前单元格值
-
-currentCellData : '#''.'property ;//表示取当前单元绑定对象的某个属性值
-
-cell : 'cell' ('.'property)? ;
-
 dataset : Identifier '.' aggregate '(' property? (',' conditions )? (',' ORDER)? ')';
 
 function : Identifier '(' functionParameter? ')' ;
@@ -87,28 +72,13 @@ function : Identifier '(' functionParameter? ')' ;
 functionParameter : item (','? item)* ;
 
 set : simpleValue										#simpleData
-	| Cell												#singleCell
-	| Cell '['']'('{' conditions '}')?					#wholeCell
-	| Cell ':' Cell										#cellPair
-	| Cell '{' conditions '}'							#singleCellCondition
-	| Cell '[' cellCoordinate ']'						#singleCellCoordinate
-	| Cell '[' cellCoordinate ']' '{' conditions '}'	#cellCoordinateCondition
 	| set 'to' set										#range
 	;
 
-cellCoordinate : coordinate (';' coordinate)? ;
-
-coordinate : cellIndicator (',' cellIndicator)* ;
-
-cellIndicator : Cell									#relative
-			  | Cell ':' EXCLAMATION? INTEGER			#absolute
-			  ;
-
 conditions : condition (join condition)* ;
 
-condition : Cell LogicalOperator expr 				#cellNameExprCondition
-		  | property LogicalOperator expr			#propertyCondition
-		  | currentValue LogicalOperator expr			#currentValueCondition
+condition : property LogicalOperator expr			#propertyCondition
+		  | currentValue LogicalOperator expr		#currentValueCondition
 		  | expr LogicalOperator expr				#exprCondition
 		  ;
 

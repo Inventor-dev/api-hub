@@ -1,9 +1,9 @@
 package xyz.lemone.apihub.support.sqlparse.expression.function;
 
 import org.apache.commons.lang3.StringUtils;
-import xyz.lemone.apihub.ureport.Utils;
-import xyz.lemone.apihub.ureport.build.BindData;
-import xyz.lemone.apihub.ureport.build.Context;
+import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
+import xyz.lemone.apihub.support.sqlparse.context.BindData;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.BindDataListExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
@@ -50,7 +50,7 @@ public class GetFunction implements Function {
             }
         }
         if (StringUtils.isNotBlank(propertyName)) {
-            obj = Utils.getProperty(obj, propertyName);
+            obj = ValueConvertHelper.getProperty(obj, propertyName);
         }
         return obj;
     }
@@ -61,7 +61,7 @@ public class GetFunction implements Function {
             ObjectExpressionData exprData = (ObjectExpressionData) d;
             Object obj = exprData.getData();
             if (obj != null) {
-                index = Utils.toBigDecimal(obj).intValue();
+                index = ValueConvertHelper.toBigDecimal(obj).intValue();
             }
         }
         return index;

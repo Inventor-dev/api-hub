@@ -1,6 +1,6 @@
 package xyz.lemone.apihub.support.sqlparse.expression.model.condition;
 
-import xyz.lemone.apihub.ureport.build.Context;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 
 /**
  * Condition.

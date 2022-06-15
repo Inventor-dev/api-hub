@@ -3,8 +3,8 @@ package xyz.lemone.apihub.support.sqlparse.expression.function.string;
 import java.util.List;
 
 import xyz.lemone.apihub.support.sqlparse.expression.function.Functions;
-import xyz.lemone.apihub.ureport.Utils;
-import xyz.lemone.apihub.ureport.build.Context;
+import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.exception.ExpressionComputeException;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
@@ -37,7 +37,7 @@ public class SubstringFunction extends StringFunction {
 			if(obj==null){
 				throw new ExpressionComputeException("Function ["+name()+"] second parameter can not be null.");
 			}
-			return Utils.toBigDecimal(obj).intValue();
+			return ValueConvertHelper.toBigDecimal(obj).intValue();
 		}
 		throw new ExpressionComputeException("Function ["+name()+"] position data is invalid : "+exprData);
 	}

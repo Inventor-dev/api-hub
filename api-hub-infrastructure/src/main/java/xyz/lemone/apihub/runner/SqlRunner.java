@@ -1,8 +1,7 @@
 package xyz.lemone.apihub.runner;
 
-import xyz.lemone.apihub.ureport.Utils;
-import xyz.lemone.apihub.ureport.build.Context;
-import xyz.lemone.apihub.ureport.expression.ExpressionUtils;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
+import xyz.lemone.apihub.support.sqlparse.ExpressionParser;
 import xyz.lemone.apihub.support.sqlparse.expression.model.expression.Expression;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
@@ -48,10 +47,10 @@ public class SqlRunner implements IConfigurableRunner<InterfaceConfig, Object>, 
 
     public String parseSql(String sql, Map<String, Object> parameters) {
         sql = sql.trim();
-        Context context = new Context(applicationContext, parameters);
-        if (sql.startsWith(ExpressionUtils.EXPR_PREFIX) && sql.endsWith(ExpressionUtils.EXPR_SUFFIX)) {
+        Context context = new Context(parameters);
+        if (sql.startsWith(ExpressionParser.EXPR_PREFIX) && sql.endsWith(ExpressionParser.EXPR_SUFFIX)) {
             sql = sql.substring(2, sql.length() - 1);
-            Expression expr = ExpressionUtils.parseExpression(sql);
+            Expression expr = ExpressionParser.parseExpression(sql);
             sql = executeSqlExpr(expr, context);
             return sql;
         } else {
@@ -61,11 +60,10 @@ public class SqlRunner implements IConfigurableRunner<InterfaceConfig, Object>, 
             while (matcher.find()) {
                 String substr = matcher.group();
                 String sqlExpr = substr.substring(2, substr.length() - 1);
-                Expression expr = ExpressionUtils.parseExpression(sqlExpr);
+                Expression expr = ExpressionParser.parseExpression(sqlExpr);
                 String result = executeSqlExpr(expr, context);
                 sqlForUse = sqlForUse.replace(substr, result);
             }
-            Utils.logToConsole("DESIGN SQL:" + sqlForUse);
             return sqlForUse;
         }
     }

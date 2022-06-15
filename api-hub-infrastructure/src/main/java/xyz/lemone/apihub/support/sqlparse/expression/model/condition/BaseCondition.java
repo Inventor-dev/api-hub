@@ -1,14 +1,14 @@
 package xyz.lemone.apihub.support.sqlparse.expression.model.condition;
 
+import xyz.lemone.apihub.support.sqlparse.context.BindData;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
+import xyz.lemone.apihub.support.sqlparse.expression.manager.LogicalOperatorAsserters;
 import xyz.lemone.apihub.support.sqlparse.expression.model.LogicalOperator;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.BindDataListExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.NoneExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectListExpressionData;
-import xyz.lemone.apihub.ureport.build.BindData;
-import xyz.lemone.apihub.ureport.build.Context;
-import xyz.lemone.apihub.ureport.expression.ExpressionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public abstract class BaseCondition implements Condition {
     public final boolean filter(Object obj, Context context) {
         Object left = computeLeft(obj, context);
         Object right = computeRight(obj, context);
-        boolean result = ExpressionUtils.conditionEval(operator, left, right);
+        boolean result = LogicalOperatorAsserters.conditionEval(operator, left, right);
         if (join != null && nextCondition != null) {
             if (result) {
                 if (join.equals(Join.and)) {

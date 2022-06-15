@@ -12,29 +12,25 @@ import java.util.Map;
  * @author lemon
  * @Since 0.0.1
  */
-public class SimpleExpressionFunctionManager implements ExpressionFunctionManager {
+public class ExpressionFunctions {
 
     /**
      * 注册的方法
      */
-    private Map<String, Function> registerFunctions = new HashMap<>();
+    private static final Map<String, Function> registerFunctions = new HashMap<>();
 
-    @Override
-    public Map<String, Function> getFunctions() {
+    public static Map<String, Function> getFunctions() {
         return registerFunctions;
     }
 
-    @Override
-    public Function getFunction(String name) {
+    public static Function getFunction(String name) {
         return registerFunctions.get(name);
     }
 
-    @Override
     public void registerFunction(Function function) {
         registerFunctions.put(function.name(), function);
     }
 
-    @Override
     public void registerFunctions(Collection<Function> functions) {
         for (Function fun : functions) {
             registerFunctions.put(fun.name(), fun);

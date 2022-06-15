@@ -1,9 +1,9 @@
 package xyz.lemone.apihub.support.sqlparse.expression.function;
 
 import org.apache.commons.lang3.StringUtils;
-import xyz.lemone.apihub.ureport.Utils;
-import xyz.lemone.apihub.ureport.build.BindData;
-import xyz.lemone.apihub.ureport.build.Context;
+import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
+import xyz.lemone.apihub.support.sqlparse.context.BindData;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.BindDataListExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
@@ -33,7 +33,7 @@ public class MinFunction implements Function {
                     if (obj == null || StringUtils.isBlank(obj.toString())) {
                         continue;
                     }
-                    BigDecimal bigData = Utils.toBigDecimal(obj);
+                    BigDecimal bigData = ValueConvertHelper.toBigDecimal(obj);
                     if (value == null) {
                         value = bigData;
                     } else {
@@ -46,7 +46,7 @@ public class MinFunction implements Function {
             } else if (exprData instanceof ObjectExpressionData) {
                 Object obj = exprData.getData();
                 if (obj != null && StringUtils.isNotBlank(obj.toString())) {
-                    value = Utils.toBigDecimal(obj);
+                    value = ValueConvertHelper.toBigDecimal(obj);
                 }
             } else if (exprData instanceof BindDataListExpressionData) {
                 BindDataListExpressionData bindDataList = (BindDataListExpressionData) exprData;
@@ -56,7 +56,7 @@ public class MinFunction implements Function {
                     if (obj == null || StringUtils.isBlank(obj.toString())) {
                         continue;
                     }
-                    BigDecimal bigData = Utils.toBigDecimal(obj);
+                    BigDecimal bigData = ValueConvertHelper.toBigDecimal(obj);
                     if (value == null) {
                         value = bigData;
                     } else {

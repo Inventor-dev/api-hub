@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import xyz.lemone.apihub.support.sqlparse.expression.function.Functions;
-import xyz.lemone.apihub.ureport.Utils;
-import xyz.lemone.apihub.ureport.build.Context;
+import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.exception.ExpressionComputeException;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
@@ -28,7 +28,7 @@ public class PowFunction extends MathFunction {
 				if(obj==null){
 					throw new ExpressionComputeException("Pow Function second parameter can not be null.");
 				}
-				pos=Utils.toBigDecimal(obj).intValue();
+				pos= ValueConvertHelper.toBigDecimal(obj).intValue();
 			}
 		}
 		return Math.pow(data.doubleValue(),pos);

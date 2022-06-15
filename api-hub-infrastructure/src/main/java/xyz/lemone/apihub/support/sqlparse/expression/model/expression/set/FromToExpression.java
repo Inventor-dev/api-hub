@@ -5,8 +5,8 @@ import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectListExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.expression.BaseExpression;
-import xyz.lemone.apihub.ureport.Utils;
-import xyz.lemone.apihub.ureport.build.Context;
+import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,7 @@ public class FromToExpression extends BaseExpression {
     private int convertFloatData(Object data) {
         if (data instanceof ObjectExpressionData) {
             Object obj = ((ObjectExpressionData) data).getData();
-            return Utils.toBigDecimal(obj).intValue();
+            return ValueConvertHelper.toBigDecimal(obj).intValue();
         } else {
             throw new ExpressionComputeException("Can not convert [" + data + "] to integer.");
         }

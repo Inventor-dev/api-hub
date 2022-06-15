@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import xyz.lemone.apihub.ureport.Utils;
+import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
 import xyz.lemone.apihub.support.sqlparse.exception.ExpressionComputeException;
 import xyz.lemone.apihub.support.sqlparse.expression.function.Function;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
@@ -30,14 +30,14 @@ public abstract class CalendarFunction implements Function {
 				if(obj==null){
 					throw new ExpressionComputeException("Function [day] first parameter can not be null.");
 				}
-				date= Utils.toDate(obj);
+				date= ValueConvertHelper.toDate(obj);
 			}else if(data instanceof ObjectExpressionData){
 				ObjectExpressionData objData=(ObjectExpressionData)data;
 				Object obj=objData.getData();
 				if(obj==null){
 					throw new ExpressionComputeException("Function [day] first parameter can not be null.");
 				}
-				date=Utils.toDate(obj);
+				date= ValueConvertHelper.toDate(obj);
 			}else{
 				throw new ExpressionComputeException("Function [day] first parameter need a data of Date.");
 			}

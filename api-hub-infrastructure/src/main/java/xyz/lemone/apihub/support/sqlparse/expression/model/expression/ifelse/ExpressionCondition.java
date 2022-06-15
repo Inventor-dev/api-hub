@@ -1,6 +1,7 @@
 package xyz.lemone.apihub.support.sqlparse.expression.model.expression.ifelse;
 
 import xyz.lemone.apihub.support.sqlparse.exception.ExpressionComputeException;
+import xyz.lemone.apihub.support.sqlparse.expression.manager.LogicalOperatorAsserters;
 import xyz.lemone.apihub.support.sqlparse.expression.model.LogicalOperator;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.BindDataListExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
@@ -8,9 +9,8 @@ import xyz.lemone.apihub.support.sqlparse.expression.model.data.NoneExpressionDa
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectListExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.expression.Expression;
-import xyz.lemone.apihub.ureport.build.BindData;
-import xyz.lemone.apihub.ureport.build.Context;
-import xyz.lemone.apihub.ureport.expression.ExpressionUtils;
+import xyz.lemone.apihub.support.sqlparse.context.BindData;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 
 import java.util.List;
 
@@ -38,7 +38,7 @@ public class ExpressionCondition {
         ExpressionData<?> rightData = right.execute(context);
         Object leftObj = getData(leftData);
         Object rightObj = getData(rightData);
-        return ExpressionUtils.conditionEval(operator, leftObj, rightObj);
+        return LogicalOperatorAsserters.conditionEval(operator, leftObj, rightObj);
     }
 
     private Object getData(ExpressionData<?> data) {
@@ -74,7 +74,7 @@ public class ExpressionCondition {
                 return sb.toString();
             }
         } else {
-            throw new ExpressionComputeException("Unknow data : " + data);
+            throw new ExpressionComputeException("not know data : " + data);
         }
     }
 

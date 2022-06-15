@@ -1,9 +1,9 @@
 package xyz.lemone.apihub.support.sqlparse.expression.function;
 
 import org.apache.commons.lang3.StringUtils;
-import xyz.lemone.apihub.ureport.Utils;
-import xyz.lemone.apihub.ureport.build.BindData;
-import xyz.lemone.apihub.ureport.build.Context;
+import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
+import xyz.lemone.apihub.support.sqlparse.context.BindData;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.BindDataListExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
@@ -35,14 +35,14 @@ public class SumFunction implements Function {
                         continue;
                     }
                     singleData = obj;
-                    BigDecimal bigData = Utils.toBigDecimal(obj);
+                    BigDecimal bigData = ValueConvertHelper.toBigDecimal(obj);
                     total = total.add(bigData);
                 }
             } else if (exprData instanceof ObjectExpressionData) {
                 Object obj = exprData.getData();
                 singleData = obj;
                 if (obj != null && StringUtils.isNotBlank(obj.toString())) {
-                    BigDecimal bigData = Utils.toBigDecimal(obj);
+                    BigDecimal bigData = ValueConvertHelper.toBigDecimal(obj);
                     total = total.add(bigData);
                 }
             } else if (exprData instanceof BindDataListExpressionData) {
@@ -54,7 +54,7 @@ public class SumFunction implements Function {
                         continue;
                     }
                     singleData = obj;
-                    BigDecimal bigData = Utils.toBigDecimal(obj);
+                    BigDecimal bigData = ValueConvertHelper.toBigDecimal(obj);
                     total = total.add(bigData);
                 }
             }
