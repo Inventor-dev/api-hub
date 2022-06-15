@@ -83,11 +83,11 @@ public abstract class BaseCondition implements Condition {
         return null;
     }
 
-    public void setOp(LogicalOperator logicalOperator) {
+    public void setLogicalOperator(LogicalOperator logicalOperator) {
         this.operator = logicalOperator;
     }
 
-    public LogicalOperator getOp() {
+    public LogicalOperator getLogicalOperator() {
         return operator;
     }
 

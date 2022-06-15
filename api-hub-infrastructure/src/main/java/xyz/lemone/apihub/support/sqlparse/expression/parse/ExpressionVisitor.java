@@ -228,7 +228,7 @@ public class ExpressionVisitor extends ConfigSqlParserBaseVisitor<Expression> {
 		List<BaseExpression> expressions=new ArrayList<BaseExpression>();
 		List<ArithmeticOperator> arithmeticOperators =new ArrayList<ArithmeticOperator>();
 		List<ConfigSqlParserParser.ItemContext> itemContexts = exprContext.item();
-		List<TerminalNode> operatorNodes=exprContext.Operator();
+		List<TerminalNode> operatorNodes=exprContext.ArithmeticOperator();
 		for(int i=0;i<itemContexts.size();i++){
 			ConfigSqlParserParser.ItemContext itemContext=itemContexts.get(i);
 			BaseExpression expr=parseItemContext(itemContext);
@@ -253,7 +253,7 @@ public class ExpressionVisitor extends ConfigSqlParserBaseVisitor<Expression> {
 			ConfigSqlParserParser.ExprContext right=context.expr(1);
 			Expression leftExpr=parseExpr(left);
 			Expression rightExpr=parseExpr(right);
-			LogicalOperator logicalOperator = LogicalOperator.parse(context.OP().getText());
+			LogicalOperator logicalOperator = LogicalOperator.parse(context.LogicalOperator().getText());
 			ExpressionCondition condition=new ExpressionCondition(leftExpr, logicalOperator,rightExpr);
 			list.add(condition);
 			if(i>0){
@@ -292,7 +292,7 @@ public class ExpressionVisitor extends ConfigSqlParserBaseVisitor<Expression> {
 		List<BaseExpression> expressions=new ArrayList<BaseExpression>();
 		List<ArithmeticOperator> arithmeticOperators =new ArrayList<ArithmeticOperator>();
 		List<ConfigSqlParserParser.UnitContext> unitContexts=ctx.unit();
-		List<TerminalNode> operatorNodes=ctx.Operator();
+		List<TerminalNode> operatorNodes=ctx.ArithmeticOperator();
 		for(int i=0;i<unitContexts.size();i++){
 			ConfigSqlParserParser.UnitContext unitContext=unitContexts.get(i);
 			BaseExpression expr=buildExpression(unitContext);
@@ -316,7 +316,7 @@ public class ExpressionVisitor extends ConfigSqlParserBaseVisitor<Expression> {
 		List<BaseExpression> expressions= new ArrayList<>();
 		List<ArithmeticOperator> arithmeticOperators = new ArrayList<>();
 		List<ConfigSqlParserParser.ItemContext> itemContexts=ctx.item();
-		List<TerminalNode> operatorNodes=ctx.Operator();
+		List<TerminalNode> operatorNodes=ctx.ArithmeticOperator();
 		for(int i=0;i<itemContexts.size();i++){
 			ConfigSqlParserParser.ItemContext itemContext=itemContexts.get(i);
 			BaseExpression expr=parseItemContext(itemContext);

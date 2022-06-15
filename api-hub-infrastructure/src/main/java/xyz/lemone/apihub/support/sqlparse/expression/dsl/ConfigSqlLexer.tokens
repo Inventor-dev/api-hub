@@ -1,6 +1,6 @@
 Cell=1
-Operator=2
-OP=3
+ArithmeticOperator=2
+LogicalOperator=3
 ORDER=4
 BOOLEAN=5
 COLON=6

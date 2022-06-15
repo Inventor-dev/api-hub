@@ -4,6 +4,7 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import org.apache.commons.lang3.math.NumberUtils;
 import xyz.lemone.apihub.support.sqlparse.ExpressionParser;
 import xyz.lemone.apihub.support.sqlparse.exception.ConfigSqlParseException;
+import xyz.lemone.apihub.support.sqlparse.expression.dsl.ConfigSqlParserParser;
 import xyz.lemone.apihub.support.sqlparse.expression.model.LogicalOperator;
 import xyz.lemone.apihub.support.sqlparse.expression.model.condition.BaseCondition;
 import xyz.lemone.apihub.support.sqlparse.expression.model.condition.BothExpressionCondition;
@@ -18,7 +19,6 @@ import xyz.lemone.apihub.support.sqlparse.expression.model.expression.NullExpres
 import xyz.lemone.apihub.support.sqlparse.expression.model.expression.NumberExpression;
 import xyz.lemone.apihub.support.sqlparse.expression.model.expression.StringExpression;
 import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
-import xyz.lemone.apihub.support.sqlparse.expression.dsl.ConfigSqlParserParser;
 
 import java.util.List;
 
@@ -72,15 +72,15 @@ public abstract class BaseExpressionBuilder implements ExpressionBuilder {
             ConfigSqlParserParser.ExprConditionContext ctx = (ConfigSqlParserParser.ExprConditionContext) context;
             BothExpressionCondition condition = new BothExpressionCondition();
             List<ConfigSqlParserParser.ExprContext> exprContexts = ctx.expr();
-            String left = exprContexts.get(0).getText();
+            String left = exprContexts.get(NumberUtils.INTEGER_ZERO).getText();
             condition.setLeft(left);
             Expression leftExpr = ExpressionParser.parseExpression(left);
             condition.setLeftExpression(leftExpr);
-            String rightExpr = exprContexts.get(1).getText();
+            String rightExpr = exprContexts.get(NumberUtils.INTEGER_ONE).getText();
             condition.setRight(rightExpr);
             condition.setRightExpression(ExpressionParser.parseExpression(rightExpr));
-            condition.setOp(parseOp(ctx.OP()));
-            condition.setOperation(ctx.OP().getText());
+            condition.setLogicalOperator(parseLogicalOperator(ctx.LogicalOperator()));
+            condition.setOperation(ctx.LogicalOperator().getText());
             return condition;
         } else if (context instanceof ConfigSqlParserParser.CurrentValueConditionContext) {
             ConfigSqlParserParser.CurrentValueConditionContext ctx = (ConfigSqlParserParser.CurrentValueConditionContext) context;
@@ -88,7 +88,7 @@ public abstract class BaseExpressionBuilder implements ExpressionBuilder {
             String rightExpr = ctx.expr().getText();
             condition.setRight(rightExpr);
             condition.setRightExpression(ExpressionParser.parseExpression(rightExpr));
-            condition.setOp(parseOp(ctx.OP()));
+            condition.setLogicalOperator(parseLogicalOperator(ctx.LogicalOperator()));
             return condition;
         } else if (context instanceof ConfigSqlParserParser.PropertyConditionContext) {
             ConfigSqlParserParser.PropertyConditionContext ctx = (ConfigSqlParserParser.PropertyConditionContext) context;
@@ -99,13 +99,13 @@ public abstract class BaseExpressionBuilder implements ExpressionBuilder {
             String rightExpr = ctx.expr().getText();
             condition.setRight(rightExpr);
             condition.setRightExpression(ExpressionParser.parseExpression(rightExpr));
-            condition.setOp(parseOp(ctx.OP()));
+            condition.setLogicalOperator(parseLogicalOperator(ctx.LogicalOperator()));
             return condition;
         }
         throw new ConfigSqlParseException("not know condition context : " + context);
     }
 
-    private LogicalOperator parseOp(TerminalNode opNode) {
+    private LogicalOperator parseLogicalOperator(TerminalNode opNode) {
         return LogicalOperator.parse(opNode.getText());
     }
 }

@@ -1,5 +1,4 @@
-// Generated from ReportParser.g4 by ANTLR 4.5.3
-package xyz.lemone.apihub.support.sqlparse.expression.dsl;
+package xyz.lemone.apihub.support.sqlparse.expression.dsl;// Generated from /Users/lemon/Project/OpenSource/api-hub/api-hub-infrastructure/dsl/ConfigSqlParser.g4 by ANTLR 4.10.1
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -162,36 +161,6 @@ public interface ConfigSqlParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVariable(ConfigSqlParserParser.VariableContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ConfigSqlParserParser#cellPosition}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCellPosition(ConfigSqlParserParser.CellPositionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ConfigSqlParserParser#relativeCell}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRelativeCell(ConfigSqlParserParser.RelativeCellContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ConfigSqlParserParser#currentCellValue}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCurrentCellValue(ConfigSqlParserParser.CurrentCellValueContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ConfigSqlParserParser#currentCellData}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCurrentCellData(ConfigSqlParserParser.CurrentCellDataContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ConfigSqlParserParser#cell}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCell(ConfigSqlParserParser.CellContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ConfigSqlParserParser#dataset}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -210,41 +179,6 @@ public interface ConfigSqlParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFunctionParameter(ConfigSqlParserParser.FunctionParameterContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code cellPair}
-	 * labeled alternative in {@link ConfigSqlParserParser#set}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCellPair(ConfigSqlParserParser.CellPairContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code wholeCell}
-	 * labeled alternative in {@link ConfigSqlParserParser#set}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitWholeCell(ConfigSqlParserParser.WholeCellContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code cellCoordinateCondition}
-	 * labeled alternative in {@link ConfigSqlParserParser#set}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCellCoordinateCondition(ConfigSqlParserParser.CellCoordinateConditionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code singleCellCondition}
-	 * labeled alternative in {@link ConfigSqlParserParser#set}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSingleCellCondition(ConfigSqlParserParser.SingleCellConditionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code singleCell}
-	 * labeled alternative in {@link ConfigSqlParserParser#set}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSingleCell(ConfigSqlParserParser.SingleCellContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code simpleData}
 	 * labeled alternative in {@link ConfigSqlParserParser#set}.
 	 * @param ctx the parse tree
@@ -259,51 +193,11 @@ public interface ConfigSqlParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitRange(ConfigSqlParserParser.RangeContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code singleCellCoordinate}
-	 * labeled alternative in {@link ConfigSqlParserParser#set}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSingleCellCoordinate(ConfigSqlParserParser.SingleCellCoordinateContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ConfigSqlParserParser#cellCoordinate}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCellCoordinate(ConfigSqlParserParser.CellCoordinateContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ConfigSqlParserParser#coordinate}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCoordinate(ConfigSqlParserParser.CoordinateContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code relative}
-	 * labeled alternative in {@link ConfigSqlParserParser#cellIndicator}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRelative(ConfigSqlParserParser.RelativeContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code absolute}
-	 * labeled alternative in {@link ConfigSqlParserParser#cellIndicator}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAbsolute(ConfigSqlParserParser.AbsoluteContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ConfigSqlParserParser#conditions}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitConditions(ConfigSqlParserParser.ConditionsContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code cellNameExprCondition}
-	 * labeled alternative in {@link ConfigSqlParserParser#condition}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCellNameExprCondition(ConfigSqlParserParser.CellNameExprConditionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code propertyCondition}
 	 * labeled alternative in {@link ConfigSqlParserParser#condition}.
