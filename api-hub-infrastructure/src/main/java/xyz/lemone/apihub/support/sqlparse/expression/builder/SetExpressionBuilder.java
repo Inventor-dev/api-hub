@@ -2,14 +2,15 @@ package xyz.lemone.apihub.support.sqlparse.expression.builder;
 
 import org.apache.commons.lang3.math.NumberUtils;
 import xyz.lemone.apihub.support.sqlparse.exception.ConfigSqlParseException;
+import xyz.lemone.apihub.support.sqlparse.expression.dsl.ConfigSqlParserParser;
 import xyz.lemone.apihub.support.sqlparse.expression.model.expression.BaseExpression;
 import xyz.lemone.apihub.support.sqlparse.expression.model.expression.set.FromToExpression;
-import xyz.lemone.apihub.support.sqlparse.expression.dsl.ConfigSqlParserParser;
 
 import java.util.List;
 
 /**
  * SetExpressionBuilder.
+ *
  * @author lemon
  */
 public class SetExpressionBuilder extends BaseExpressionBuilder {
@@ -21,6 +22,11 @@ public class SetExpressionBuilder extends BaseExpressionBuilder {
         return setExpr;
     }
 
+    /**
+     * buildSetExpression.
+     * @param context 上下文
+     * @return Expression
+     */
     public BaseExpression buildSetExpression(ConfigSqlParserParser.SetContext context) {
         if (context instanceof ConfigSqlParserParser.RangeContext) {
             ConfigSqlParserParser.RangeContext ctx = (ConfigSqlParserParser.RangeContext) context;

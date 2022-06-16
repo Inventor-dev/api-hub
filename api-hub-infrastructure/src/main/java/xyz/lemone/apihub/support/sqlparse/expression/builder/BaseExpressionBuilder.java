@@ -6,18 +6,8 @@ import xyz.lemone.apihub.support.sqlparse.ExpressionParser;
 import xyz.lemone.apihub.support.sqlparse.exception.ConfigSqlParseException;
 import xyz.lemone.apihub.support.sqlparse.expression.dsl.ConfigSqlParserParser;
 import xyz.lemone.apihub.support.sqlparse.expression.model.LogicalOperator;
-import xyz.lemone.apihub.support.sqlparse.expression.model.condition.BaseCondition;
-import xyz.lemone.apihub.support.sqlparse.expression.model.condition.BothExpressionCondition;
-import xyz.lemone.apihub.support.sqlparse.expression.model.condition.CurrentValueExpressionCondition;
-import xyz.lemone.apihub.support.sqlparse.expression.model.condition.Join;
-import xyz.lemone.apihub.support.sqlparse.expression.model.condition.PropertyExpressionCondition;
-import xyz.lemone.apihub.support.sqlparse.expression.model.expression.BaseExpression;
-import xyz.lemone.apihub.support.sqlparse.expression.model.expression.BooleanExpression;
-import xyz.lemone.apihub.support.sqlparse.expression.model.expression.Expression;
-import xyz.lemone.apihub.support.sqlparse.expression.model.expression.IntegerExpression;
-import xyz.lemone.apihub.support.sqlparse.expression.model.expression.NullExpression;
-import xyz.lemone.apihub.support.sqlparse.expression.model.expression.NumberExpression;
-import xyz.lemone.apihub.support.sqlparse.expression.model.expression.StringExpression;
+import xyz.lemone.apihub.support.sqlparse.expression.model.condition.*;
+import xyz.lemone.apihub.support.sqlparse.expression.model.expression.*;
 import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
 
 import java.util.List;
@@ -44,7 +34,6 @@ public abstract class BaseExpressionBuilder implements ExpressionBuilder {
         }
         throw new ConfigSqlParseException("not know simple value context " + valueContext);
     }
-
 
     protected BaseCondition buildConditions(ConfigSqlParserParser.ConditionsContext conditionsContext) {
         List<ConfigSqlParserParser.ConditionContext> conditionContextList = conditionsContext.condition();

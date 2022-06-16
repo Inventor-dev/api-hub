@@ -1,6 +1,5 @@
 package xyz.lemone.apihub.support.sqlparse.expression.assertor;
 
-
 /**
  * NotEqualsAsserter.
  *

@@ -1,7 +1,5 @@
 package xyz.lemone.apihub.support.sqlparse.expression.assertor;
 
-import xyz.lemone.apihub.support.sqlparse.expression.assertor.Asserter;
-
 import java.util.List;
 import java.util.Objects;
 

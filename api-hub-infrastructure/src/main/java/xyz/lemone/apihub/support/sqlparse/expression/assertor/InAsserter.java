@@ -1,11 +1,10 @@
 package xyz.lemone.apihub.support.sqlparse.expression.assertor;
 
-import xyz.lemone.apihub.support.sqlparse.expression.assertor.Asserter;
-
 import java.util.List;
 
 /**
  * InAsserter.
+ *
  * @author lemon
  */
 public class InAsserter implements Asserter {

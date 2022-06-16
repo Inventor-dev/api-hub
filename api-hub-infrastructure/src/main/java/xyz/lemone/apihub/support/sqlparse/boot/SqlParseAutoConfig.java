@@ -62,7 +62,7 @@ public class SqlParseAutoConfig {
      * 方法表达式管理器.
      *
      * @param functions 托管的方法
-     * @return
+     * @return ExpressionFunctions
      */
     @Bean
     public ExpressionFunctions expressionFunctionManager(List<Function> functions) {
@@ -75,7 +75,7 @@ public class SqlParseAutoConfig {
     /**
      * 参数方法.
      *
-     * @return
+     * @return parameterFunction
      */
     @Bean
     public ParameterFunction parameterFunction() {

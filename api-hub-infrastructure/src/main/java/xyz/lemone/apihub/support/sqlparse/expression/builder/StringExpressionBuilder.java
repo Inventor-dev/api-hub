@@ -1,10 +1,9 @@
 package xyz.lemone.apihub.support.sqlparse.expression.builder;
 
 import org.apache.commons.lang3.math.NumberUtils;
+import xyz.lemone.apihub.support.sqlparse.expression.dsl.ConfigSqlParserParser;
 import xyz.lemone.apihub.support.sqlparse.expression.model.expression.BaseExpression;
 import xyz.lemone.apihub.support.sqlparse.expression.model.expression.StringExpression;
-import xyz.lemone.apihub.support.sqlparse.expression.dsl.ConfigSqlParserParser;
-
 
 /**
  * StringExpressionBuilder.

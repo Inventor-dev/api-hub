@@ -3,7 +3,6 @@ package xyz.lemone.apihub.support.sqlparse.context;
 import java.io.Serializable;
 import java.util.List;
 
-
 /**
  * BindData.
  * @author lemon

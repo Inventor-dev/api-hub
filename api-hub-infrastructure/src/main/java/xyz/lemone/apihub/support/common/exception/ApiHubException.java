@@ -2,10 +2,10 @@ package xyz.lemone.apihub.support.common.exception;
 
 /**
  * ApiHubException.
+ *
  * @author lemon
  */
-public class ApiHubException extends RuntimeException{
-
+public class ApiHubException extends RuntimeException {
     public ApiHubException() {
     }
 
