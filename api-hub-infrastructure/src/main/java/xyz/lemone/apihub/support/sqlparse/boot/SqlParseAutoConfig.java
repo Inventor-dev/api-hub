@@ -15,11 +15,11 @@ import xyz.lemone.apihub.support.sqlparse.expression.function.OrderFunction;
 import xyz.lemone.apihub.support.sqlparse.expression.function.ParameterFunction;
 import xyz.lemone.apihub.support.sqlparse.expression.function.ParameterIsEmptyFunction;
 import xyz.lemone.apihub.support.sqlparse.expression.function.SumFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.date.DateFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.date.DayFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.date.MonthFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.date.WeekFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.date.YearFunction;
+import xyz.lemone.apihub.support.sqlparse.expression.function.date.DateFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.date.DayFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.date.MonthFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.date.WeekFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.date.YearFunctionBase;
 import xyz.lemone.apihub.support.sqlparse.expression.function.math.AbsFunction;
 import xyz.lemone.apihub.support.sqlparse.expression.function.math.CeilFunction;
 import xyz.lemone.apihub.support.sqlparse.expression.function.math.ChnFunction;
@@ -173,28 +173,28 @@ public class SqlParseAutoConfig {
     }
 
     @Bean
-    public DateFunction dateFunction() {
-        return new DateFunction();
+    public DateFunctionBase dateFunction() {
+        return new DateFunctionBase();
     }
 
     @Bean
-    public DayFunction dayFunction() {
-        return new DayFunction();
+    public DayFunctionBase dayFunction() {
+        return new DayFunctionBase();
     }
 
     @Bean
-    public MonthFunction monthFunction() {
-        return new MonthFunction();
+    public MonthFunctionBase monthFunction() {
+        return new MonthFunctionBase();
     }
 
     @Bean
-    public WeekFunction weekFunction() {
-        return new WeekFunction();
+    public WeekFunctionBase weekFunction() {
+        return new WeekFunctionBase();
     }
 
     @Bean
-    public YearFunction yearFunction() {
-        return new YearFunction();
+    public YearFunctionBase yearFunction() {
+        return new YearFunctionBase();
     }
 
     @Bean

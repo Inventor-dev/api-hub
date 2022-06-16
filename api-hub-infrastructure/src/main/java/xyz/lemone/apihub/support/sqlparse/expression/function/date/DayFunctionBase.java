@@ -1,27 +1,28 @@
-package xyz.lemone.apihub.support.sqlparse.expression.function.math;
+package xyz.lemone.apihub.support.sqlparse.expression.function.date;
 
 import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.expression.function.Functions;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 
-import java.math.BigDecimal;
+import java.util.Calendar;
 import java.util.List;
 
 /**
- * AbsFunction.
+ * DayFunction.
  *
  * @author lemon
  */
-public class AbsFunction extends MathFunction {
+public class DayFunctionBase extends BaseCalendarFunction {
 
     @Override
     public Object execute(List<ExpressionData<?>> dataList, Context context) {
-        BigDecimal data = buildBigDecimal(dataList);
-        return Math.abs(data.doubleValue());
+        Calendar c = buildCalendar(dataList);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        return day;
     }
 
     @Override
     public String name() {
-        return Functions.ABS;
+        return Functions.DAY;
     }
 }

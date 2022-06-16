@@ -1,7 +1,7 @@
 package xyz.lemone.apihub.support.sqlparse.expression.function.math;
 
-import xyz.lemone.apihub.support.sqlparse.expression.function.Functions;
 import xyz.lemone.apihub.support.sqlparse.context.Context;
+import xyz.lemone.apihub.support.sqlparse.expression.function.Functions;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 
 import java.math.BigDecimal;
@@ -31,7 +31,6 @@ public class VaraFunction extends MathFunction {
         BigDecimal result = new BigDecimal(sum);
         return result.divide(new BigDecimal(size), 8, BigDecimal.ROUND_HALF_UP);
     }
-
 
     @Override
     public String name() {

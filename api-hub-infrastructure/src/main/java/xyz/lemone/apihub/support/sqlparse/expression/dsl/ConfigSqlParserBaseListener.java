@@ -1,4 +1,6 @@
-package xyz.lemone.apihub.support.sqlparse.expression.dsl;// Generated from /Users/lemon/Project/OpenSource/api-hub/api-hub-infrastructure/dsl/ConfigSqlParser.g4 by ANTLR 4.10.1
+// Generated from ConfigSqlParser.g4 by ANTLR 4.10.1
+
+package xyz.lemone.apihub.support.sqlparse.expression.dsl;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -8,6 +10,7 @@ import org.antlr.v4.runtime.tree.TerminalNode;
  * This class provides an empty implementation of {@link ConfigSqlParserListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
+ * @author lemon
  */
 public class ConfigSqlParserBaseListener implements ConfigSqlParserListener {
     /**

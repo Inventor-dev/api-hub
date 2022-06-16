@@ -1,9 +1,9 @@
 package xyz.lemone.apihub.support.sqlparse.expression.model.condition;
 
 /**
- * @author Jacky.gao
- * @since 2017年4月24日
+ * ConditionType.
+ * @author lemon
  */
 public enum ConditionType {
-	property,expression,cell,current;
+    property, expression, current;
 }

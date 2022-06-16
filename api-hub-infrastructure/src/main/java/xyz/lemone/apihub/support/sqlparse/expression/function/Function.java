@@ -16,16 +16,16 @@ public interface Function {
     /**
      * 执行方法表达式逻辑.
      *
-     * @param dataList
-     * @param context
-     * @return
+     * @param dataList 表达式数据
+     * @param context 上下文
+     * @return 方法表达式执行结果
      */
     Object execute(List<ExpressionData<?>> dataList, Context context);
 
     /**
-     * 注册的表达式名称
+     * 注册的表达式名称.
      *
-     * @return
+     * @return function name
      */
     String name();
 

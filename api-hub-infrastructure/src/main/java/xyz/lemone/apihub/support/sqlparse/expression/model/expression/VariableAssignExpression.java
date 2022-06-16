@@ -1,21 +1,24 @@
 package xyz.lemone.apihub.support.sqlparse.expression.model.expression;
 
+import xyz.lemone.apihub.support.sqlparse.context.BindData;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.BindDataListExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectListExpressionData;
-import xyz.lemone.apihub.support.sqlparse.context.BindData;
-import xyz.lemone.apihub.support.sqlparse.context.Context;
 
 import java.util.List;
 
 /**
  * VariableAssignExpression.
+ *
  * @author lemon
  */
 public class VariableAssignExpression extends BaseExpression {
     private static final long serialVersionUID = 435511939569866187L;
+
     private String variable;
+
     private Expression expression;
 
     @Override

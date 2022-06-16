@@ -1,6 +1,12 @@
-package xyz.lemone.apihub.support.sqlparse.expression.dsl;// Generated from /Users/lemon/Project/OpenSource/api-hub/api-hub-infrastructure/dsl/ConfigSqlParser.g4 by ANTLR 4.10.1
+// Generated from ConfigSqlParser.g4 by ANTLR 4.10.1
 
-import org.antlr.v4.runtime.*;
+package xyz.lemone.apihub.support.sqlparse.expression.dsl;
+
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.Lexer;
+import org.antlr.v4.runtime.RuntimeMetaData;
+import org.antlr.v4.runtime.Vocabulary;
+import org.antlr.v4.runtime.VocabularyImpl;
 import org.antlr.v4.runtime.atn.ATN;
 import org.antlr.v4.runtime.atn.ATNDeserializer;
 import org.antlr.v4.runtime.atn.LexerATNSimulator;

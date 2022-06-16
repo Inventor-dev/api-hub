@@ -2,19 +2,22 @@ package xyz.lemone.apihub.support.sqlparse.expression.model.condition;
 
 import org.apache.commons.lang3.StringUtils;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.expression.Expression;
 import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
-import xyz.lemone.apihub.support.sqlparse.context.Context;
 
 /**
  * PropertyExpressionCondition.
+ *
  * @author lemon
  */
 public class PropertyExpressionCondition extends BaseCondition {
     private ConditionType type = ConditionType.property;
+
     @JsonIgnore
     private String leftProperty;
+
     @JsonIgnore
     private Expression rightExpression;
 

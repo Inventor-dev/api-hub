@@ -1,4 +1,6 @@
-package xyz.lemone.apihub.support.sqlparse.expression.dsl;// Generated from /Users/lemon/Project/OpenSource/api-hub/api-hub-infrastructure/dsl/ConfigSqlParser.g4 by ANTLR 4.10.1
+// Generated from ConfigSqlParser.g4 by ANTLR 4.10.1
+
+package xyz.lemone.apihub.support.sqlparse.expression.dsl;
 
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -6,7 +8,7 @@ import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
  * This class provides an empty implementation of {@link ConfigSqlParserVisitor},
  * which can be extended to create a visitor which only needs to handle a subset
  * of the available methods.
- *
+ * @author lemon
  * @param <T> The return type of the visit operation. Use {@link Void} for
  *            operations with no return type.
  */

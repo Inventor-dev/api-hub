@@ -1,6 +1,7 @@
 package xyz.lemone.apihub.support.sqlparse.expression.function;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
 import xyz.lemone.apihub.support.sqlparse.context.BindData;
 import xyz.lemone.apihub.support.sqlparse.context.Context;
@@ -26,7 +27,7 @@ public class GetFunction implements Function {
         List<Object> list = new ArrayList<>();
         if (dataList.size() == 1) {
             buildList(dataList.get(0), list);
-        } else if (dataList.size() == 2) {
+        } else if (dataList.size() == NumberUtils.INTEGER_TWO) {
             buildList(dataList.get(0), list);
             index = buildIndex(dataList.get(1));
         } else if (dataList.size() == 3) {

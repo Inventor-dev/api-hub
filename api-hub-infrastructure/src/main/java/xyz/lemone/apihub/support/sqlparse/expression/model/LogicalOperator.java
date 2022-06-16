@@ -69,9 +69,11 @@ public enum LogicalOperator {
         return this.value.equals(op);
     }
 
-    ;
-
-
+    /**
+     * 转换为枚举.
+     * @param op str value
+     * @return a enum
+     */
     public static LogicalOperator parse(String op) {
         for (LogicalOperator aEnum : values()) {
             if (aEnum.support(op)) {

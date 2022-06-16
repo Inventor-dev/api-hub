@@ -1,6 +1,7 @@
 package xyz.lemone.apihub.support.sqlparse.toolkit;
 
 import org.apache.commons.beanutils.PropertyUtils;
+import org.apache.commons.lang3.StringUtils;
 import xyz.lemone.apihub.support.sqlparse.exception.ConvertException;
 import xyz.lemone.apihub.support.sqlparse.exception.ExpressionComputeException;
 
@@ -8,7 +9,6 @@ import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
-
 
 /**
  * ValueConvertHelper.
@@ -34,6 +34,11 @@ public class ValueConvertHelper {
         }
     }
 
+    /**
+     * 转换为 date.
+     * @param obj data
+     * @return date
+     */
     public static Date toDate(Object obj) {
         if (obj instanceof Date) {
             return (Date) obj;
@@ -53,6 +58,11 @@ public class ValueConvertHelper {
         throw new ConvertException("Can not convert " + obj + " to Date.");
     }
 
+    /**
+     * 转换为 BigDecimal.
+     * @param obj data
+     * @return BigDecimal
+     */
     public static BigDecimal toBigDecimal(Object obj) {
         if (obj == null) {
             return null;
@@ -60,7 +70,7 @@ public class ValueConvertHelper {
         if (obj instanceof BigDecimal) {
             return (BigDecimal) obj;
         } else if (obj instanceof String) {
-            if (obj.toString().trim().equals("")) {
+            if (StringUtils.EMPTY.equals(obj.toString().trim())) {
                 return new BigDecimal(0);
             }
             try {

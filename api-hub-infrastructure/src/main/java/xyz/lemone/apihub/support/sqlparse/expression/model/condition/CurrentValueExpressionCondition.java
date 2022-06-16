@@ -1,17 +1,19 @@
 package xyz.lemone.apihub.support.sqlparse.expression.model.condition;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.expression.Expression;
-import xyz.lemone.apihub.support.sqlparse.context.Context;
 
 /**
  * CurrentValueExpressionCondition.
+ *
  * @author lemon
  */
 public class CurrentValueExpressionCondition extends BaseCondition {
 
     private ConditionType type = ConditionType.current;
+
     @JsonIgnore
     private Expression rightExpression;
 

@@ -1,12 +1,12 @@
 package xyz.lemone.apihub.support.sqlparse.expression.model.expression;
 
+import xyz.lemone.apihub.support.sqlparse.context.BindData;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.expression.model.ArithmeticOperator;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.BindDataListExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectListExpressionData;
-import xyz.lemone.apihub.support.sqlparse.context.BindData;
-import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.toolkit.ElCompute;
 
 import java.util.ArrayList;
@@ -19,7 +19,9 @@ import java.util.List;
  */
 public class JoinExpression extends BaseExpression {
     private static final long serialVersionUID = 1L;
+
     private List<ArithmeticOperator> arithmeticOperators;
+
     private List<BaseExpression> expressions;
 
     public JoinExpression(List<ArithmeticOperator> arithmeticOperators, List<BaseExpression> expressions) {

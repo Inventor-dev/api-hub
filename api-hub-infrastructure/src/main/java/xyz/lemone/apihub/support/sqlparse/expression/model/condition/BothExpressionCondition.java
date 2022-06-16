@@ -1,18 +1,21 @@
 package xyz.lemone.apihub.support.sqlparse.expression.model.condition;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.expression.Expression;
-import xyz.lemone.apihub.support.sqlparse.context.Context;
 
 /**
  * BothExpressionCondition.
+ *
  * @author lemon
  */
 public class BothExpressionCondition extends BaseCondition {
     private ConditionType type = ConditionType.expression;
+
     @JsonIgnore
     private Expression leftExpression;
+
     @JsonIgnore
     private Expression rightExpression;
 
@@ -27,7 +30,6 @@ public class BothExpressionCondition extends BaseCondition {
         ExpressionData<?> exprData = rightExpression.execute(context);
         return extractExpressionData(exprData);
     }
-
 
     @Override
     public ConditionType getType() {

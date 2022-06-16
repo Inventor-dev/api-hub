@@ -1,5 +1,7 @@
 package xyz.lemone.apihub.support.sqlparse.expression.model.expression.ifelse;
 
+import xyz.lemone.apihub.support.sqlparse.context.BindData;
+import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.exception.ExpressionComputeException;
 import xyz.lemone.apihub.support.sqlparse.expression.manager.LogicalOperatorAsserters;
 import xyz.lemone.apihub.support.sqlparse.expression.model.LogicalOperator;
@@ -9,8 +11,6 @@ import xyz.lemone.apihub.support.sqlparse.expression.model.data.NoneExpressionDa
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.data.ObjectListExpressionData;
 import xyz.lemone.apihub.support.sqlparse.expression.model.expression.Expression;
-import xyz.lemone.apihub.support.sqlparse.context.BindData;
-import xyz.lemone.apihub.support.sqlparse.context.Context;
 
 import java.util.List;
 
@@ -33,6 +33,11 @@ public class ExpressionCondition {
         this.right = right;
     }
 
+    /**
+     * eval.
+     * @param context 上下文
+     * @return a bool
+     */
     public boolean eval(Context context) {
         ExpressionData<?> leftData = left.execute(context);
         ExpressionData<?> rightData = right.execute(context);

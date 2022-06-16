@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * ObjectListExpressionData.
+ *
  * @author lemon
  */
 public class ObjectListExpressionData implements ExpressionData<List<?>> {
@@ -14,12 +15,12 @@ public class ObjectListExpressionData implements ExpressionData<List<?>> {
     private List<?> list;
 
     public ObjectListExpressionData(List<?> list) {
-		this.list=list;
-	}
+        this.list = list;
+    }
 
-	@Override
-	public List<?> getData() {
-		return list;
-	}
+    @Override
+    public List<?> getData() {
+        return list;
+    }
 
 }

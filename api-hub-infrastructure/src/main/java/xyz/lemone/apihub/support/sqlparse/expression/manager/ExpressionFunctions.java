@@ -15,25 +15,29 @@ import java.util.Map;
 public class ExpressionFunctions {
 
     /**
-     * 注册的方法
+     * 注册的方法.
      */
-    private static final Map<String, Function> registerFunctions = new HashMap<>();
+    private static final Map<String, Function> REGISTER_FUNCTIONS = new HashMap<>();
 
     public static Map<String, Function> getFunctions() {
-        return registerFunctions;
+        return REGISTER_FUNCTIONS;
     }
 
     public static Function getFunction(String name) {
-        return registerFunctions.get(name);
+        return REGISTER_FUNCTIONS.get(name);
     }
 
     public void registerFunction(Function function) {
-        registerFunctions.put(function.name(), function);
+        REGISTER_FUNCTIONS.put(function.name(), function);
     }
 
+    /**
+     * 注册方法函数处理器.
+     * @param functions function
+     */
     public void registerFunctions(Collection<Function> functions) {
         for (Function fun : functions) {
-            registerFunctions.put(fun.name(), fun);
+            REGISTER_FUNCTIONS.put(fun.name(), fun);
         }
     }
 }

@@ -39,6 +39,12 @@ public enum ArithmeticOperator {
         this.value = value;
     }
 
+    /**
+     * 转换为枚举.
+     *
+     * @param op strValue
+     * @return a enum
+     */
     public static ArithmeticOperator parse(String op) {
         for (ArithmeticOperator aEnum : values()) {
             if (aEnum.value.equals(op)) {
@@ -54,5 +60,4 @@ public enum ArithmeticOperator {
         return this.value;
     }
 
-    ;
 }

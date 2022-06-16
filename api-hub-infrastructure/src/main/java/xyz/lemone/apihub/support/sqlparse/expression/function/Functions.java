@@ -97,22 +97,24 @@ public class Functions {
      * 截取字符串.
      */
     public static final String SUBSTRING = "substring";
+
     /**
      * 去空.
      */
     public static final String TRIM = "trim";
+
     /**
      * 大写.
      */
     public static final String UPPER = "upper";
 
     /**
-     * 日期
+     * 日期.
      */
     public static final String DATE = "date";
 
     /**
-     * 获取天
+     * 获取天.
      */
     public static final String DAY = "day";
 
@@ -130,12 +132,14 @@ public class Functions {
      * 年.
      */
     public static final String YEAR = "year";
+
     /**
      * 绝对值.
      */
     public static final String ABS = "abs";
+
     /**
-     * 向上舍入
+     * 向上舍入.
      */
     public static final String CEIL = "ceil";
 
@@ -205,7 +209,7 @@ public class Functions {
     public static final String RMB = "rmb";
 
     /**
-     * 平方根
+     * 平方根.
      */
     public static final String SQRT = "sqrt";
 
@@ -223,4 +227,5 @@ public class Functions {
      * 方差.
      */
     public static final String VARA = "vara";
+
 }

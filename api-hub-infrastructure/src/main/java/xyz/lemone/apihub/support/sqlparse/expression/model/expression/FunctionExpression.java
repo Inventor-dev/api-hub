@@ -44,7 +44,6 @@ public class FunctionExpression extends BaseExpression {
         return new ObjectExpressionData(obj);
     }
 
-
     public String getName() {
         return name;
     }

@@ -15,16 +15,22 @@ import java.util.List;
 import java.util.logging.Logger;
 
 /**
- * @author Jacky.gao
- * @since 2016年11月22日
+ * BaseCondition.
+ * @author lemon
  */
 public abstract class BaseCondition implements Condition {
     protected LogicalOperator operator;
+
     private String operation;
+
     private Join join;
+
     private Condition nextCondition;
+
     private String left;
+
     private String right;
+
     protected Logger log = Logger.getAnonymousLogger();
 
     @Override

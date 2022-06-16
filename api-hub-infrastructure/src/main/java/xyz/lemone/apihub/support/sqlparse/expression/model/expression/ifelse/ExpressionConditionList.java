@@ -21,6 +21,11 @@ public class ExpressionConditionList {
         this.joins = joins;
     }
 
+    /**
+     * eval.
+     * @param context 上下文
+     * @return a bool
+     */
     public boolean eval(Context context) {
         if (conditions.size() == 1) {
             return conditions.get(0).eval(context);

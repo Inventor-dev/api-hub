@@ -1,5 +1,7 @@
 package xyz.lemone.apihub.support.sqlparse.expression.assertor;
 
+import org.apache.commons.lang3.math.NumberUtils;
+import xyz.lemone.apihub.support.sqlparse.exception.ConvertException;
 import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
 
 import java.math.BigDecimal;
@@ -19,29 +21,13 @@ public class EqualsAsserter extends AbstractAsserter {
         if (left == null || right == null) {
             return false;
         }
-        if (left instanceof Number && right instanceof Number) {
-            BigDecimal b1 = ValueConvertHelper.toBigDecimal(left);
-            BigDecimal b2 = ValueConvertHelper.toBigDecimal(right);
-            return b1.compareTo(b2) == 0;
-        } else if (left instanceof Number) {
-            BigDecimal b1 = ValueConvertHelper.toBigDecimal(left);
-            BigDecimal b2 = null;
+        if (left instanceof Number || right instanceof Number) {
             try {
-                b2 = ValueConvertHelper.toBigDecimal(right);
-            } catch (Exception ex) {
-            }
-            if (b2 != null) {
-                return b1.compareTo(b2) == 0;
-            }
-        } else if (right instanceof Number) {
-            BigDecimal b1 = ValueConvertHelper.toBigDecimal(right);
-            BigDecimal b2 = null;
-            try {
-                b2 = ValueConvertHelper.toBigDecimal(left);
-            } catch (Exception ex) {
-            }
-            if (b2 != null) {
-                return b1.compareTo(b2) == 0;
+                BigDecimal b1 = ValueConvertHelper.toBigDecimal(left);
+                BigDecimal b2 = ValueConvertHelper.toBigDecimal(right);
+                return NumberUtils.INTEGER_ZERO == b1.compareTo(b2);
+            } catch (ConvertException e) {
+                // ignore convert error
             }
         }
         right = buildObject(right);

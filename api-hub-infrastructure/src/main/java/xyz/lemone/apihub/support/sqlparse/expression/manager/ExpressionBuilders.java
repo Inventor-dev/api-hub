@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * ExpressionBuilders.
+ *
  * @author lemon
  */
 public class ExpressionBuilders {
@@ -32,10 +33,8 @@ public class ExpressionBuilders {
         expressionBuilders.add(new NullExpressionBuilder());
     }
 
-
-    public static List<ExpressionBuilder> getExpressionBuilders(){
+    public static List<ExpressionBuilder> getExpressionBuilders() {
         return expressionBuilders;
     }
-
 
 }

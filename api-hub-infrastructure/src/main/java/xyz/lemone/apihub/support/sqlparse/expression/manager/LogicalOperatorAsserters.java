@@ -36,7 +36,6 @@ public class LogicalOperatorAsserters {
         registerAsserters.put(LogicalOperator.Like, new LikeAsserter());
     }
 
-
     public static Map<LogicalOperator, Asserter> getAsserters() {
         return registerAsserters;
     }
@@ -45,11 +44,17 @@ public class LogicalOperatorAsserters {
         return registerAsserters.get(operator);
     }
 
+    /**
+     * conditionEval.
+     * @param operator logical operator
+     * @param left left
+     * @param right right
+     * @return a bool value
+     */
     public static boolean conditionEval(LogicalOperator operator, Object left, Object right) {
         Asserter asserter = getAsserter(operator);
         boolean result = asserter.eval(left, right);
         return result;
     }
-
 
 }

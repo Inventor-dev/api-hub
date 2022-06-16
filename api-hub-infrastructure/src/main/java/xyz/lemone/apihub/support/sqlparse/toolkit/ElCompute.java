@@ -8,10 +8,12 @@ import java.util.Stack;
 
 /**
  * ElCompute.
+ *
  * @author lemon
  */
 public class ElCompute {
     private Stack<Object> dataStack = new Stack<Object>();
+
     private Stack<Character> operateStack = new Stack<Character>();
 
     public static void main(String[] args) {
@@ -33,7 +35,8 @@ public class ElCompute {
 
     private void init(String expr) {
         StringBuilder dataSb = new StringBuilder();
-        char prevQuote = ' ', prevChar = ' ';
+        char prevQuote = ' ';
+        char prevChar = ' ';
         for (int i = 0; i < expr.length(); i++) {
             char c = expr.charAt(i);
             if (prevChar == '\\') {
@@ -180,7 +183,6 @@ public class ElCompute {
         }
         throw new ExpressionComputeException("not known operate " + op + "");
     }
-
 
     private void addDataStack(StringBuilder dataSb) {
         if (dataSb.length() == 0) {
