@@ -16,8 +16,9 @@
         <property name="ignorePattern"
             value="^implements.*|^extends.*|^package.*|^import.*|a href|href|http://|https://|ftp://"/>
     </module>
-    <module name="SuppressWarningsFilter"/>
-    
+    <module name="SuppressionFilter">
+        <property name="file" value="${config_loc}/suppressions.xml"/>
+    </module>
     <module name="TreeWalker">
         <module name="SuppressionCommentFilter"/>
         <module name="SuppressWarningsHolder" />
@@ -67,7 +68,7 @@
         
         <!-- Javadoc Checker -->
         <module name="JavadocMethod">
-            <property name="scope" value="public"/>
+            <property name="accessModifiers" value="public"/>
             <property name="allowMissingParamTags" value="true"/>
             <property name="allowMissingReturnTag" value="true"/>
             <property name="allowedAnnotations"
