@@ -13,7 +13,7 @@ import java.util.Map;
  * 参数方法.
  *
  * @author lemon
- * @Since 0.0.1
+ * @since 0.0.1
  */
 public class ParameterFunction implements Function {
 

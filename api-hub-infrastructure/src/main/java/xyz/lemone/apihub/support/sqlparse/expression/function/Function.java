@@ -9,7 +9,7 @@ import java.util.List;
  * 方法表达式接口定义.
  *
  * @author lemon
- * @Since 0.0.1
+ * @since 0.0.1
  */
 public interface Function {
 
