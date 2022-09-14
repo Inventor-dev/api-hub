@@ -1,5 +1,6 @@
 package xyz.lemone.apihub.support.sqlparse.expression.function.date;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import xyz.lemone.apihub.support.sqlparse.context.Context;
 import xyz.lemone.apihub.support.sqlparse.exception.ExpressionComputeException;
 import xyz.lemone.apihub.support.sqlparse.expression.function.Functions;
@@ -23,14 +24,14 @@ public class DateFunctionBase extends BaseCalendarFunction {
     public Object execute(List<ExpressionData<?>> dataList, Context context) {
         SimpleDateFormat sd = new SimpleDateFormat(pattern);
         Date date = new Date();
-        if (dataList.size() == 1) {
-            ExpressionData<?> data = dataList.get(0);
+        if (dataList.size() == NumberUtils.INTEGER_ONE) {
+            ExpressionData<?> data = dataList.get(NumberUtils.INTEGER_ZERO);
             sd = buildPattern(data);
         }
-        if (dataList.size() == 2) {
+        if (dataList.size() == NumberUtils.INTEGER_TWO) {
             Calendar c = buildCalendar(dataList);
             date = c.getTime();
-            ExpressionData<?> data = dataList.get(1);
+            ExpressionData<?> data = dataList.get(NumberUtils.INTEGER_ONE);
             sd = buildPattern(data);
         }
         return sd.format(date);
@@ -43,7 +44,7 @@ public class DateFunctionBase extends BaseCalendarFunction {
             String newPattern = (String) objectData.getData();
             sd = new SimpleDateFormat(newPattern);
         } else {
-            throw new ExpressionComputeException("Unknow date format pattern:" + data.getData());
+            throw new ExpressionComputeException("not know date format pattern:" + data.getData());
         }
         return sd;
     }

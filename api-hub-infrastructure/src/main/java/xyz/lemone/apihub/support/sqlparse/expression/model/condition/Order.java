@@ -6,5 +6,19 @@ package xyz.lemone.apihub.support.sqlparse.expression.model.condition;
  * @author lemon
  */
 public enum Order {
-    desc, asc, none
+
+    /**
+     * 降序.
+     */
+    desc,
+
+    /**
+     * 升序.
+     */
+    asc,
+
+    /**
+     * 无.
+     */
+    none
 }

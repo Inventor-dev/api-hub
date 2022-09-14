@@ -5,5 +5,20 @@ package xyz.lemone.apihub.support.sqlparse.expression.model.condition;
  * @author lemon
  */
 public enum ConditionType {
-    property, expression, current;
+
+    /**
+     * 属性.
+     */
+    property,
+
+    /**
+     * 表达式.
+     */
+    expression,
+
+    /**
+     * 当前.
+     */
+    current;
+
 }

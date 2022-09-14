@@ -4,6 +4,7 @@ plugins {
 
 dependencies {
     api(project(":api-hub-facade"))
+    api(project(":api-hub-domain"))
 	api 'javax.servlet:servlet-api:2.5'
 	implementation 'org.springframework:spring-expression:5.3.20'
 	implementation 'org.springframework:spring-context:5.3.20'
@@ -26,6 +27,11 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
+
+tasks.withType(Checkstyle){
+	exclude 'xyz/lemone/apihub/support/sqlparse/expression/dsl/**'
+}
+
 
 test {
     useJUnitPlatform()

@@ -56,10 +56,26 @@ public abstract class BaseCondition implements Condition {
         return result;
     }
 
+    /**
+     * computeLeft.
+     * @param obj obj
+     * @param context 上下文
+     * @return 计算结果
+     */
     protected abstract Object computeLeft(Object obj, Context context);
 
+    /**
+     * computeRight.
+     * @param obj obj
+     * @param context 上下文
+     * @return 计算结果
+     */
     protected abstract Object computeRight(Object obj, Context context);
 
+    /**
+     * 获取 ConditionType.
+     * @return ConditionType
+     */
     public abstract ConditionType getType();
 
     protected Object extractExpressionData(ExpressionData<?> data) {

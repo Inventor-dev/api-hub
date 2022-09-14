@@ -51,6 +51,7 @@ import java.util.List;
 
 /**
  * ExpressionVisitor.
+ * @author lemon
  */
 public class ExpressionVisitor extends ConfigSqlParserBaseVisitor<Expression> {
 
@@ -282,12 +283,7 @@ public class ExpressionVisitor extends ConfigSqlParserBaseVisitor<Expression> {
             list.add(condition);
             if (i > 0) {
                 JoinContext joinContext = joinContexts.get(i - 1);
-                String text = joinContext.getText();
-                Join join = Join.and;
-                if (text.equals("or") || text.equals("||")) {
-                    join = Join.or;
-                }
-                joins.add(join);
+                joins.add(Join.parse(joinContext.getText(), Join.and));
             }
         }
         return new ExpressionConditionList(list, joins);
@@ -295,6 +291,7 @@ public class ExpressionVisitor extends ConfigSqlParserBaseVisitor<Expression> {
 
     /**
      * parseItemContext.
+     *
      * @param itemContext item 上下文
      * @return BaseExpression
      */

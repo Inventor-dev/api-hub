@@ -20,31 +20,31 @@ import xyz.lemone.apihub.support.sqlparse.expression.function.date.DayFunctionBa
 import xyz.lemone.apihub.support.sqlparse.expression.function.date.MonthFunctionBase;
 import xyz.lemone.apihub.support.sqlparse.expression.function.date.WeekFunctionBase;
 import xyz.lemone.apihub.support.sqlparse.expression.function.date.YearFunctionBase;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.AbsFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.CeilFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.ChnFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.CosFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.ExpFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.FloorFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.Log10Function;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.LogFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.MedianFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.ModeFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.PowFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.RandomFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.RoundFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.SinFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.SqrtFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.StdevpFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.TanFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.math.VaraFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.string.IndexOfFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.string.LengthFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.string.LowerFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.string.ReplaceFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.string.SubstringFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.string.TrimFunction;
-import xyz.lemone.apihub.support.sqlparse.expression.function.string.UpperFunction;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.AbsFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.CeilFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.ChnFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.CosFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.ExpFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.FloorFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.Log10FunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.LogFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.MedianFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.ModeFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.PowFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.RandomFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.RoundFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.SinFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.SqrtFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.StdevpFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.TanFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.math.VaraFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.string.IndexOfFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.string.LengthFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.string.LowerFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.string.ReplaceFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.string.SubstringFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.string.TrimFunctionBase;
+import xyz.lemone.apihub.support.sqlparse.expression.function.string.UpperFunctionBase;
 import xyz.lemone.apihub.support.sqlparse.expression.manager.ExpressionFunctions;
 
 import java.util.List;
@@ -138,38 +138,38 @@ public class SqlParseAutoConfig {
     }
 
     @Bean
-    public IndexOfFunction indexOfFunction() {
-        return new IndexOfFunction();
+    public IndexOfFunctionBase indexOfFunction() {
+        return new IndexOfFunctionBase();
     }
 
     @Bean
-    public LengthFunction lengthFunction() {
-        return new LengthFunction();
+    public LengthFunctionBase lengthFunction() {
+        return new LengthFunctionBase();
     }
 
     @Bean
-    public LowerFunction lowerFunction() {
-        return new LowerFunction();
+    public LowerFunctionBase lowerFunction() {
+        return new LowerFunctionBase();
     }
 
     @Bean
-    public ReplaceFunction replaceFunction() {
-        return new ReplaceFunction();
+    public ReplaceFunctionBase replaceFunction() {
+        return new ReplaceFunctionBase();
     }
 
     @Bean
-    public SubstringFunction substringFunction() {
-        return new SubstringFunction();
+    public SubstringFunctionBase substringFunction() {
+        return new SubstringFunctionBase();
     }
 
     @Bean
-    public TrimFunction trimFunction() {
-        return new TrimFunction();
+    public TrimFunctionBase trimFunction() {
+        return new TrimFunctionBase();
     }
 
     @Bean
-    public UpperFunction upperFunction() {
-        return new UpperFunction();
+    public UpperFunctionBase upperFunction() {
+        return new UpperFunctionBase();
     }
 
     @Bean
@@ -198,93 +198,93 @@ public class SqlParseAutoConfig {
     }
 
     @Bean
-    public AbsFunction absFunction() {
-        return new AbsFunction();
+    public AbsFunctionBase absFunction() {
+        return new AbsFunctionBase();
     }
 
     @Bean
-    public CeilFunction ceilFunction() {
-        return new CeilFunction();
+    public CeilFunctionBase ceilFunction() {
+        return new CeilFunctionBase();
     }
 
     @Bean
-    public CosFunction cosFunction() {
-        return new CosFunction();
+    public CosFunctionBase cosFunction() {
+        return new CosFunctionBase();
     }
 
     @Bean
-    public ExpFunction expFunction() {
-        return new ExpFunction();
+    public ExpFunctionBase expFunction() {
+        return new ExpFunctionBase();
     }
 
     @Bean
-    public FloorFunction floorFunction() {
-        return new FloorFunction();
+    public FloorFunctionBase floorFunction() {
+        return new FloorFunctionBase();
     }
 
     @Bean
-    public Log10Function log10Function() {
-        return new Log10Function();
+    public Log10FunctionBase log10Function() {
+        return new Log10FunctionBase();
     }
 
     @Bean
-    public LogFunction logFunction() {
-        return new LogFunction();
+    public LogFunctionBase logFunction() {
+        return new LogFunctionBase();
     }
 
     @Bean
-    public MedianFunction medianFunction() {
-        return new MedianFunction();
+    public MedianFunctionBase medianFunction() {
+        return new MedianFunctionBase();
     }
 
     @Bean
-    public ModeFunction modeFunction() {
-        return new ModeFunction();
+    public ModeFunctionBase modeFunction() {
+        return new ModeFunctionBase();
     }
 
     @Bean
-    public PowFunction powFunction() {
-        return new PowFunction();
+    public PowFunctionBase powFunction() {
+        return new PowFunctionBase();
     }
 
     @Bean
-    public RandomFunction randomFunction() {
-        return new RandomFunction();
+    public RandomFunctionBase randomFunction() {
+        return new RandomFunctionBase();
     }
 
     @Bean
-    public RoundFunction roundFunction() {
-        return new RoundFunction();
+    public RoundFunctionBase roundFunction() {
+        return new RoundFunctionBase();
     }
 
     @Bean
-    public SinFunction sinFunction() {
-        return new SinFunction();
+    public SinFunctionBase sinFunction() {
+        return new SinFunctionBase();
     }
 
     @Bean
-    public ChnFunction chnFunction() {
-        return new ChnFunction();
+    public ChnFunctionBase chnFunction() {
+        return new ChnFunctionBase();
     }
 
     @Bean
-    public SqrtFunction sqrtFunction() {
-        return new SqrtFunction();
+    public SqrtFunctionBase sqrtFunction() {
+        return new SqrtFunctionBase();
     }
 
     @Bean
-    public StdevpFunction stdevpFunction() {
-        return new StdevpFunction();
+    public StdevpFunctionBase stdevpFunction() {
+        return new StdevpFunctionBase();
     }
 
     @Bean
-    public TanFunction tanFunction() {
-        return new TanFunction();
+    public TanFunctionBase tanFunction() {
+        return new TanFunctionBase();
     }
 
     @Bean
-    public VaraFunction varaFunction() {
-        return new VaraFunction();
+    public VaraFunctionBase varaFunction() {
+        return new VaraFunctionBase();
     }
 
 }

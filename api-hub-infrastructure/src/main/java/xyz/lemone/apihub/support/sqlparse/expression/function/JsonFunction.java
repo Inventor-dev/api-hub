@@ -1,5 +1,8 @@
 package xyz.lemone.apihub.support.sqlparse.expression.function;
 
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import xyz.lemone.apihub.support.sqlparse.context.BindData;
 import xyz.lemone.apihub.support.sqlparse.context.Context;
@@ -13,6 +16,7 @@ import xyz.lemone.apihub.support.sqlparse.toolkit.ValueConvertHelper;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * JsonFunction.
@@ -23,13 +27,13 @@ public class JsonFunction implements Function {
 
     @Override
     public Object execute(List<ExpressionData<?>> dataList, Context context) {
-        if (dataList.size() != 2) {
+        if (dataList.size() < NumberUtils.INTEGER_TWO) {
             return null;
         }
-        String obj = buildData(dataList.get(0));
-        String property = buildData(dataList.get(1));
+        String obj = buildData(dataList.get(NumberUtils.INTEGER_ZERO));
+        String property = buildData(dataList.get(NumberUtils.INTEGER_ONE));
 
-        if (obj == null || property == null || obj.equals("") || property.equals("")) {
+        if (Objects.isNull(obj) || StringUtils.isBlank(property) || obj.equals(StringUtils.EMPTY)) {
             return null;
         }
         ObjectMapper mapper = new ObjectMapper();
@@ -52,18 +56,18 @@ public class JsonFunction implements Function {
         } else if (exprData instanceof ObjectListExpressionData) {
             ObjectListExpressionData listData = (ObjectListExpressionData) exprData;
             List<?> list = listData.getData();
-            if (list.size() == 1) {
-                Object data = list.get(0);
-                if (data != null) {
+            if (CollectionUtils.isNotEmpty(list)) {
+                Object data = list.get(NumberUtils.INTEGER_ZERO);
+                if (Objects.nonNull(data)) {
                     obj = data.toString();
                 }
             }
         } else if (exprData instanceof BindDataListExpressionData) {
             BindDataListExpressionData listData = (BindDataListExpressionData) exprData;
             List<BindData> list = listData.getData();
-            if (list.size() == 1) {
-                Object data = list.get(0).getValue();
-                if (data != null) {
+            if (CollectionUtils.isNotEmpty(list)) {
+                Object data = list.get(NumberUtils.INTEGER_ZERO).getValue();
+                if (Objects.nonNull(data)) {
                     obj = data.toString();
                 }
             }
